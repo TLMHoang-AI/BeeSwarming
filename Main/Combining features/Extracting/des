@@ -2,3 +2,5 @@ we aim to extracing features base on cross-over method:
   STFT + Chroma
   STFT + MFCC
   MFCC + Croma
+
+for the MFCC and Chroma combining features extraction, we evaluate the model performace inside the extracting code
