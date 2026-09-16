@@ -1,0 +1,19 @@
+# Private/raw datasets
+/datasets/
+/data/raw/
+*.wav
+*.mp3
+*.flac
+
+# Generated/intermediate artifacts
+*.pkl
+*.pickle
+*.joblib
+*.sav
+__pycache__/
+.ipynb_checkpoints/
+
+# Local environments
+.venv/
+venv/
+.env
