@@ -10,28 +10,15 @@ Bee colonies produce acoustic patterns that change with colony state. This proje
 
 The work focuses on the experimental methodology rather than deployment: how audio is preprocessed, which acoustic representations are useful, how feature combinations affect performance, and how classical machine-learning models can be tuned and combined for robust classification.
 
-```text
-Bee audio
-   ↓
-Preprocessing / resampling / pre-emphasis
-   ↓
-┌──────────┬──────────┬──────────┐
-│   MFCC   │   STFT   │  Chroma  │
-└────┬─────┴────┬─────┴────┬─────┘
-     └──────────┴───────────┘
-                ↓
-     Statistical aggregation
-                ↓
- Feature selection / dimensionality reduction
-                ↓
- Classical ML classifiers
-                ↓
- Hyperparameter tuning
-                ↓
- Voting / ensemble experiments
-                ↓
- Swarming vs. non-swarming
-```
+### Processing Pipeline
+
+The overall workflow combines acoustic preprocessing, handcrafted feature extraction, feature selection, model training, tuning, and ensemble evaluation.
+
+<p align="center">
+  <img src="assets/BeePipeline.png" alt="Bee swarming detection pipeline" width="900">
+</p>
+
+<p align="center"><i>End-to-end experimental pipeline for acoustic bee-swarming classification.</i></p>
 
 ## Research Focus
 
@@ -58,6 +45,25 @@ The notebooks document a custom preprocessing and feature-engineering strategy b
 - PCA-based dimensionality reduction.
 
 The goal is to convert variable-length hive recordings into compact feature vectors suitable for classical machine-learning models.
+
+### Swarming vs. Non-Swarming Spectrograms
+
+The examples below show the time-frequency representation of recordings from the two target colony states. They provide a qualitative view of how acoustic energy patterns can differ between **non-swarming** and **swarming** samples. The classification pipeline itself does not rely on a single visual pattern; these signals are represented through MFCC, STFT, Chroma, and aggregated statistical features before model training.
+
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <img src="assets/non-swarming.png" alt="Non-swarming bee audio spectrogram" width="100%">
+    </td>
+    <td align="center" width="50%">
+      <img src="assets/swarming.png" alt="Swarming bee audio spectrogram" width="100%">
+    </td>
+  </tr>
+  <tr>
+    <td align="center"><b>Non-swarming</b></td>
+    <td align="center"><b>Swarming</b></td>
+  </tr>
+</table>
 
 ## Model Exploration
 
@@ -103,7 +109,10 @@ BeeSwarming/
 ├── Bee_Swarming_research.pdf
 │
 ├── assets/
-│   └── Bee.png
+│   ├── Bee.png
+│   ├── BeePipeline.png
+│   ├── non-swarming.png
+│   └── swarming.png
 │
 ├── docs/
 │   └── dataset_notes.md
